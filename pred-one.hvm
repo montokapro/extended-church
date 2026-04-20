@@ -1,0 +1,16 @@
+@id = (x x)
+
+@pred = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (C B)
+
+@main = zeroish
+  & @pred ~ (@id zeroish)
+
+// This doesn't look like zero to me.
+//
+// Result: ({(v5 v8) (v6 v8)} (v5 v6))
+// - ITRS: 5
+// - TIME: 0.00s
+// - MIPS: 0.56

@@ -1,0 +1,22 @@
+@id = (x x)
+
+@pred = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (C B)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@main = oneish
+  & @pred ~ (@id zeroish)
+  & @succ ~ (zeroish oneish)
+
+// This doesn't look like one.
+//
+// Result: ({{(ve v11) (vf v11)} (vf v7)} (ve v7))
+// - ITRS: 9
+// - TIME: 0.00s
+// - MIPS: 1.13

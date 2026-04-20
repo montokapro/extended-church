@@ -1,0 +1,16 @@
+@id = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@main = four
+  & @succ ~ (@id two)
+  & @succ ~ (two three)
+  & @succ ~ (three four)
+
+// Result: ({{{(v19 v1c) (v1c v1a)} (v1a v10)} (v10 v8)} (v19 v8))
+// - ITRS: 13
+// - TIME: 0.00s
+// - MIPS: 2.19

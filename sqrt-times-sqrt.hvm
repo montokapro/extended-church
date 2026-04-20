@@ -1,0 +1,17 @@
+@id = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@mult = (m (n (f B)))
+  & n ~ (f A)
+  & m ~ (A B)
+
+// never terminates
+@main = twoish
+  & @succ ~ (@id {two0 two1})
+  & {sqrt0 sqrt1} ~ (two0 two1)
+  & @mult ~ (sqrt0 multSqrt)
+  & multSqrt ~ (sqrt1 twoish)

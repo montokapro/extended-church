@@ -1,0 +1,20 @@
+@id = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@main = sqrtFour
+  & @succ ~ (@id {two0 two1})
+  & @succ ~ (two0 three)
+  & @succ ~ (three four)
+  & two1 ~ (sqrtFour four)
+
+// I'm not sure how to interpret this.
+// Why are all of these unbound variables?
+//
+// Result: (v1e {v29 (v27 va)})
+// - ITRS: 18
+// - TIME: 0.00s
+// - MIPS: 3.14

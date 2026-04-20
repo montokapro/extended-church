@@ -1,0 +1,24 @@
+@id = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@plus = (m (n (f (x D))))
+  & f ~ {f0 f1}
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & m ~ (f1 C)
+  & C ~ (B D)
+
+@main = five
+  & @succ ~ (@id {two0 two1})
+  & @succ ~ (two0 three)
+  & @plus ~ (two1 plusTwo)
+  & plusTwo ~ (three five)
+
+// Result: ({{({v2b v2c} v22) (v2d v2c)} (v22 {v2d v2e})} (v2b v2e))
+// - ITRS: 19
+// - TIME: 0.00s
+// - MIPS: 3.24
