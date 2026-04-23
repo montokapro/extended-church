@@ -1,0 +1,26 @@
+@id = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@reciprocal = (n (f A))
+  & n ~ (A f) // root
+
+@mult = (m (n (f B)))
+  & n ~ (f A)
+  & m ~ (A B)
+
+@main = oneish
+  & @succ ~ (@id {two0 two1})
+  & @reciprocal ~ (two0 half)
+  & @mult ~ (half multHalf)
+  & multHalf ~ (two1 oneish)
+
+// This might be eta-equivalent to one?
+//
+// Result: ((v18 {v24 v24}) ({v22 v22} v18))
+// - ITRS: 17
+// - TIME: 0.00s
+// - MIPS: 3.89

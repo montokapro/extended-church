@@ -1,0 +1,28 @@
+@id = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@reciprocal = (n (f A))
+  & n ~ (A f) // root
+
+@mult = (m (n (f B)))
+  & n ~ (f A)
+  & m ~ (A B)
+
+@main = oneish
+  & @succ ~ (@id two)
+  & @succ ~ (two {three0 three1})
+  & @reciprocal ~ (three0 third)
+  & @mult ~ (three1 multThree)
+  & multThree ~ (third oneish)
+
+// Using hvmvis, this reduces with the identity function to something like
+// c ~ {{a a} c}
+//
+// Result: ((v22 v31) (v23 {{v22 v23} v31}))
+// - ITRS: 24
+// - TIME: 0.00s
+// - MIPS: 1.47

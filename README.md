@@ -37,6 +37,9 @@ cargo install hvm
 
 ## Evaluation
 
+Run .hvm files with
 ```
 hvm run FILENAME.hvm
 ```
+
+Visualize .hvmvis files with https://hvmvis.github.io/

@@ -1,0 +1,28 @@
+@id = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@reciprocal = (n (f A))
+  & n ~ (A f) // root
+
+@plus = (m (n (f (x D))))
+  & f ~ {f0 f1}
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & m ~ (f1 C)
+  & C ~ (B D)
+
+@main = twoThirds
+  & @succ ~ (@id two)
+  & @succ ~ (two three)
+  & @reciprocal ~ (three {third0 third1})
+  & @plus ~ (third0 plusThird)
+  & plusThird ~ (third1 twoThirds)
+
+// Result: ({(v29 v37) (v28 {v28 v29})} (v39 {v37 v39}))
+// - ITRS: 25
+// - TIME: 0.00s
+// - MIPS: 1.56

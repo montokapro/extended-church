@@ -1,0 +1,30 @@
+@id = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@reciprocal = (n (f A))
+  & n ~ (A f) // root
+
+@mult = (m (n (f B)))
+  & n ~ (f A)
+  & m ~ (A B)
+
+@main = oneish
+  & @succ ~ (@id two)
+  & @succ ~ (two {three0 three1})
+  & @reciprocal ~ (three0 third)
+  & @mult ~ (third multThird)
+  & multThird ~ (three1 oneish)
+
+// Using hvmvis, this reduces with the constructor identity (x x) to something like
+// c ~ {{a a} c}
+//
+// Using hvmvis, this eliminates with the duplicator identity {x x} entirely
+//
+// Result: ((v2b {v25 v25}) {({v23 v23} v2d) (v2d v2b)})
+// - ITRS: 21
+// - TIME: 0.00s
+// - MIPS: 2.08

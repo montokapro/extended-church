@@ -1,0 +1,31 @@
+@id = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@reciprocal = (n (f A))
+  & n ~ (A f) // root
+
+@plus = (m (n (f (x D))))
+  & f ~ {f0 f1}
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & m ~ (f1 C)
+  & C ~ (B D)
+
+@main = oneish
+  & @succ ~ (@id two)
+  & @succ ~ (two three)
+  & @reciprocal ~ (three {third0 third1})
+  & @plus ~ (third0 {plusThird0 plusThird1})
+  & plusThird0 ~ (third1 twoThirds)
+  & plusThird1 ~ (twoThirds oneish)
+
+// This might be eta-equivalent to one?
+//
+// Result: ((v43 v43) (v54 v54))
+// - ITRS: 37
+// - TIME: 0.00s
+// - MIPS: 2.11
