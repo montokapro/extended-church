@@ -1,0 +1,14 @@
+@conId = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@main = succConId
+  & @succ ~ (@conId succConId)
+
+// Result: ({(v5 v8) (v8 v6)} (v5 v6))
+// - ITRS: 5
+// - TIME: 0.00s
+// - MIPS: 0.77

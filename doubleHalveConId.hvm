@@ -1,0 +1,26 @@
+@conId = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@mult = (m (n (f B)))
+  & n ~ (f A)
+  & m ~ (A B)
+
+@div = (m (n (f B)))
+  & n ~ (A f) // root
+  & m ~ (A B)
+
+@main = doubleHalveConId
+  & @succ ~ (@conId {two0 two1})
+  & @mult ~ (two0 double)
+  & @div ~ (two1 halve)
+  & halve ~ (@conId halveConId)
+  & double ~ (halveConId doubleHalveConId)
+
+// Result: ((v1e {v29 v1e}) (v27 v29))
+// - ITRS: 20
+// - TIME: 0.00s
+// - MIPS: 1.25

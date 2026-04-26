@@ -1,0 +1,20 @@
+@conId = (x x)
+
+@succ = (n ({f0 f1} (x C)))
+  & n ~ (f0 A)
+  & A ~ (x B)
+  & f1 ~ (B C)
+
+@mult = (m (n (f B)))
+  & n ~ (f A)
+  & m ~ (A B)
+
+@main = doubleConId
+  & @succ ~ (@conId two)
+  & @mult ~ (two double)
+  & double ~ (@conId doubleConId)
+
+// Result: ({(v10 v13) (v13 v11)} (v10 v11))
+// - ITRS: 11
+// - TIME: 0.00s
+// - MIPS: 1.07
