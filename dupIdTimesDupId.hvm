@@ -1,0 +1,20 @@
+@conId = (x x)
+
+@dupId = {x x}
+
+@mult = (m (n (f B)))
+  & n ~ (f A)
+  & m ~ (A B)
+
+@main = dupIdMultDupId
+  & @mult ~ (@dupId multDupId)
+  & multDupId ~ (@dupId dupIdMultDupId)
+
+// Eta equivalent to dupId
+//
+// ({a a} {b b}) <~> {(a b) (a b)} <~> {c c}
+//
+// Result: ({vc vc} {v14 v14})
+// - ITRS: 11
+// - TIME: 0.00s
+// - MIPS: 1.15

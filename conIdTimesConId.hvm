@@ -1,0 +1,16 @@
+@conId = (x x)
+
+@dupId = {x x}
+
+@mult = (m (n (f B)))
+  & n ~ (f A)
+  & m ~ (A B)
+
+@main = conIdMultConId
+  & @mult ~ (@conId multConId)
+  & multConId ~ (@conId conIdMultConId)
+
+// Result: (v6 v6)
+// - ITRS: 8
+// - TIME: 0.00s
+// - MIPS: 1.13
